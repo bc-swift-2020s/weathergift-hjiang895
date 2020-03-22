@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LocationListViewController.swift
 //  WeatherGift
 //
 //  Created by Hannah Jiang on 3/8/20.
@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         weatherLocation = WeatherLocation(name: "Lilongwe, Malawi", latitude: 0, longitude: 0)
         weatherLocations.append(weatherLocation)
         weatherLocation = WeatherLocation(name: "Buenos Aires, Argentina", latitude: 0, longitude: 0)
+        weatherLocations.append(weatherLocation)
         tableView.dataSource = self
         tableView.delegate = self
     }
