@@ -61,15 +61,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                tableView.deleteRows(at: [indexPath], with: .fade)
                
            }
+    }
            
        func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath){
            let itemToMove = weatherLocations[sourceIndexPath.row]
            weatherLocations.remove(at: sourceIndexPath.row)
            weatherLocations.insert(itemToMove, at: destinationIndexPath.row)
-          
-           
            
        }
+    
     }
-}
 
