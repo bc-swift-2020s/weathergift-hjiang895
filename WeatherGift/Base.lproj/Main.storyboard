@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LocationListViewController" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nl0-1a-Ff5">
-                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="56u-o9-LUP"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Q4-QG-aca">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="ud2-Wh-oR1" detailTextLabel="Mcd-uV-rCS" style="IBUITableViewCellStyleSubtitle" id="tPk-c1-Kel">
@@ -89,7 +89,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="9ec-8S-pQL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="138.75" y="107.74647887323944"/>
+            <point key="canvasLocation" x="317" y="108"/>
         </scene>
         <!--Location Detail View Controller-->
         <scene sceneID="u2d-ZP-mJg">
@@ -109,7 +109,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3c1-HH-4eL"/>
                                     <barButtonItem image="list.bullet" catalog="system" id="x6m-wQ-7MJ">
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" id="V6Y-cs-nPg"/>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="V6Y-cs-nPg"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
