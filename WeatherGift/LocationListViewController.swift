@@ -19,20 +19,23 @@ class LocationListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        var weatherLocation = WeatherLocation(name: "Chestnut Hill, MA", latitude: 0, longitude: 0)
-//        weatherLocations.append(weatherLocation)
-//        weatherLocation = WeatherLocation(name: "Lilongwe, Malawi", latitude: 0, longitude: 0)
-//        weatherLocations.append(weatherLocation)
-//        weatherLocation = WeatherLocation(name: "Buenos Aires, Argentina", latitude: 0, longitude: 0)
-//        weatherLocations.append(weatherLocation)
+     
         tableView.dataSource = self
         tableView.delegate = self
     }
     
+    func saveLocations() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(weatherLocations){
+        UserDefaults.standard.set(encoded, forKey: "weatherLocations")
+        } else {
+            print("ERROR: Saving encoded didn't work!")
+        }
+
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         selectedLocationIndex = tableView.indexPathForSelectedRow!.row
-        
+        saveLocations()
     }
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
