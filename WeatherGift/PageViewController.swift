@@ -15,6 +15,7 @@ class PageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadLocations()
         self.delegate = self
         self.dataSource = self
         

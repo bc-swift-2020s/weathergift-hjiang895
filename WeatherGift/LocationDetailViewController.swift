@@ -17,7 +17,6 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var weatherLocation: WeatherLocation!
     var locationIndex = 0 
     
     override func viewDidLoad() {
@@ -29,16 +28,21 @@ class LocationDetailViewController: UIViewController {
     
     func updateUserInterface(){
         let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
-        weatherLocation = pageViewController.weatherLocations[locationIndex]
-        
-        dateLabel.text = ""
-        placeLabel.text = weatherLocation.name
-        temperatureLabel.text = "--°"
-        summaryLabel.text = ""
+        let weatherLocation = pageViewController.weatherLocations[locationIndex]
+        let weatherDetail = WeatherDetail(name: weatherLocation.name, latitude: weatherLocation.latitude, longitude: weatherLocation.longitude)
         
         pageControl.numberOfPages = pageViewController.weatherLocations.count
         pageControl.currentPage = locationIndex
-        weatherLocation.getData()
+        weatherDetail.getData {
+            DispatchQueue.main.async {
+                self.dateLabel.text = weatherDetail.timezone
+                self.placeLabel.text = weatherDetail.name
+                self.temperatureLabel.text = "\(weatherDetail.temperature)°"
+                self.summaryLabel.text = weatherDetail.summary
+                self.imageView.image = UIImage(named: weatherDetail.icon)
+            }
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,18 +72,8 @@ class LocationDetailViewController: UIViewController {
         pageViewController.setViewControllers([pageViewController.createLocationDetailViewController(forPage: sender.currentPage)], direction: direction, animated: true, completion: nil)
     }
     
-    // Do any additional setup after loading the view.
+    
 }
 
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
 
 

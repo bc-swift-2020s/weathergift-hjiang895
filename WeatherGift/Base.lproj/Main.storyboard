@@ -109,8 +109,10 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8pl-XY-ER2"/>
                                     <barButtonItem style="plain" id="wyn-Wx-xuG">
                                         <pageControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="mak-4o-YkZ">
-                                            <rect key="frame" x="73" y="4" width="184" height="37"/>
+                                            <rect key="frame" x="73" y="4" width="194" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="pageIndicatorTintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="currentPageIndicatorTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <connections>
                                                 <action selector="pageControlTapped:" destination="ajv-Cg-VUG" eventType="valueChanged" id="sHH-pv-pJD"/>
                                             </connections>
