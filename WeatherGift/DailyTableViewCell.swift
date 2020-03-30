@@ -14,7 +14,6 @@ class DailyTableViewCell: UITableViewCell {
     @IBOutlet weak var dailyLowLabel: UILabel!
     @IBOutlet weak var dailySummaryLabel: UITextView!
     @IBOutlet weak var dailyHighLabel: UILabel!
-
     @IBOutlet weak var dailyWeekdayLabel: UILabel!
     
     var dailyWeather: DailyWeatherData! {

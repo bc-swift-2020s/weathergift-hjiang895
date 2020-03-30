@@ -31,6 +31,7 @@ class LocationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        clearUserInterface()
         tableView.delegate = self
         tableView.dataSource = self
         updateUserInterface()
