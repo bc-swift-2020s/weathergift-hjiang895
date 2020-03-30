@@ -41,13 +41,13 @@ class WeatherDetail: WeatherLocation {
         var data: [DailyData]
     }
     
-    private struct DailyData {
+    private struct DailyData: Codable {
         var icon: String
         var time: TimeInterval
         var summary: String
         var temperatureHigh: Double
         var temperatureLow: Double
-}
+    }
 
     var timezone = ""
     var currentTime = 0.0
@@ -72,7 +72,7 @@ class WeatherDetail: WeatherLocation {
                 print("ERROR: \(error.localizedDescription)")
             }
             do {
-                //let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                let json = try JSONSerialization.jsonObject(with: data!, options: [])
                 let result = try JSONDecoder().decode(Result.self, from: data!)
                 self.timezone = result.timezone
                 self.currentTime = result.currently.time
@@ -84,15 +84,14 @@ class WeatherDetail: WeatherLocation {
                     dateFormatter.timeZone = TimeZone(identifier: result.timezone)
                     let dailyWeekday = dateFormatter.string(from: weekdayDate)
                     let dailyIcon = result.daily.data[index].icon
-                    let dailySummary = result.daily[index].summary
+                    let dailySummary = result.daily.data[index].summary
                     let dailyHigh = Int(result.daily.data[index].temperatureHigh.rounded())
-                    let dailyLow = Int(result.daily[index].temperatureLow.rounded())
+                    let dailyLow = Int(result.daily.data[index].temperatureLow.rounded())
                     let dailyWeather = DailyWeatherData(dailyIcon: dailyIcon, dailyWeekday: "", dailySummary: dailySummary, dailyHigh: dailyHigh, dailyLow: dailyLow)
                     self.dailyWeatherData.append(dailyWeather)
                     print("Day:\(dailyWeather.dailyWeekday) High: \(dailyWeather.dailyHigh) Low: \(dailyWeather.dailyLow))")
                     }
                 
-                }
         }catch{
                 print("JSON ERROR: \(error.localizedDescription)")
             }
@@ -102,3 +101,4 @@ class WeatherDetail: WeatherLocation {
         
     }
 
+}
