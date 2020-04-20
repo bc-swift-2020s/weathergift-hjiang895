@@ -9,14 +9,14 @@
 import Foundation
 
 private let dateFormatter: DateFormatter = {
-    print("I just created a date formatter in WeatherDetail.swift!")
+   
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
     return dateFormatter
 }()
 
 private let hourlyFormatter: DateFormatter = {
-    print("I just created an hourly formatter in WeatherDetail.swift!")
+    
     let hourlyFormatter = DateFormatter()
     hourlyFormatter.dateFormat = "ha"
     return hourlyFormatter
@@ -112,9 +112,9 @@ class WeatherDetail: WeatherLocation {
                     let dailySummary = result.daily.data[index].summary
                     let dailyHigh = Int(result.daily.data[index].temperatureHigh.rounded())
                     let dailyLow = Int(result.daily.data[index].temperatureLow.rounded())
-                    let dailyWeather = DailyWeatherData(dailyIcon: dailyIcon, dailyWeekday: "", dailySummary: dailySummary, dailyHigh: dailyHigh, dailyLow: dailyLow)
+                    let dailyWeather = DailyWeatherData(dailyIcon: dailyIcon, dailyWeekday: dailyWeekday, dailySummary: dailySummary, dailyHigh: dailyHigh, dailyLow: dailyLow)
                     self.dailyWeatherData.append(dailyWeather)
-                    print("Day:\(dailyWeather.dailyWeekday) High: \(dailyWeather.dailyHigh) Low: \(dailyWeather.dailyLow))")
+                   // print("Day:\(dailyWeather.dailyWeekday) High: \(dailyWeather.dailyHigh) Low: \(dailyWeather.dailyLow))")
                     }
                 let lastHour = min(24, result.hourly.data.count)
                 for index in 0..<lastHour{
@@ -126,7 +126,7 @@ class WeatherDetail: WeatherLocation {
                     let temperature = Int(result.hourly.data[index].temperature.rounded())
                     let hourlyWeather = HourlyWeather(hour: hour, hourlyIcon: hourlyIcon, hourlyTemperature: temperature, hourlyPrecipitation: precipProbability)
                     self.hourlyWeatherData.append(hourlyWeather)
-                    print("Hour: \(hourlyWeather.hour), Icon: \(hourlyWeather.hourlyIcon), Tempearture: \(hourlyWeather.hourlyTemperature), PrecipProbability: \(hourlyWeather.hourlyPrecipitation)")
+                   print("Hour: \(hourlyWeather.hour), Icon: \(hourlyWeather.hourlyIcon), Tempearture: \(hourlyWeather.hourlyTemperature), PrecipProbability: \(hourlyWeather.hourlyPrecipitation)")
                 }
                 
         }catch{

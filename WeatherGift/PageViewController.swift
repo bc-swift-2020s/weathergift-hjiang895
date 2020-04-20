@@ -25,7 +25,7 @@ class PageViewController: UIPageViewController {
     func loadLocations(){
            guard let locationsEncoded = UserDefaults.standard.value(forKey: "weatherLocations") as? Data else {
                print("ERROR: Could not load weatherLocations data from UserDefaults.")
-            weatherLocations.append(WeatherLocation(name:"Current Location", latitude: 20.20, longitude: 20.20))
+               weatherLocations.append(WeatherLocation(name:"CURRENT LOCATION", latitude: 20.20, longitude: 20.20))
                return
            }
            let decoder = JSONDecoder()
@@ -48,17 +48,6 @@ class PageViewController: UIPageViewController {
     }
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension PageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
