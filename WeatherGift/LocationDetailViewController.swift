@@ -208,7 +208,8 @@ extension LocationDetailViewController: CLLocationManagerDelegate {
             print("LocationNAme = \(locationName)")
             let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
             pageViewController.weatherLocations[self.locationIndex].latitude = currentLocation.coordinate.latitude
-            pageViewController.weatherLocations[self.locationIndex].latitude = currentLocation.coordinate.longitude
+            pageViewController.weatherLocations[self.locationIndex].longitude = currentLocation.coordinate.longitude
+            pageViewController.weatherLocations[self.locationIndex].name = locationName
             self.updateUserInterface()
         }
     }
